@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div class="topbar">◆ The Official Website of The Illuminati Order ◆ Global Membership Open ◆</div>
+    <div class="topbar" data-i18n="topbar">◆ The Official Website of The Illuminati Order ◆ Global Membership Open ◆</div>
 
     <header class="site">
       <div class="nav-row">
@@ -33,17 +33,31 @@
         </button>
         <nav class="main" id="mainnav" aria-label="Main">
           <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#beliefs">Our Beliefs</a></li>
-            <li><a href="#members">Members</a></li>
-            <li><a href="#benefits">Benefits</a></li>
-            <li><a href="#procedure">Procedure</a></li>
-            <li><a href="#archives">Archives</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#join" class="join-btn">Join Us</a></li>
+            <li><a href="#home" class="active" data-i18n="nav_home">Home</a></li>
+            <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+            <li><a href="#beliefs" data-i18n="nav_beliefs">Our Beliefs</a></li>
+            <li><a href="#members" data-i18n="nav_members">Members</a></li>
+            <li><a href="#benefits" data-i18n="nav_benefits">Benefits</a></li>
+            <li><a href="#procedure" data-i18n="nav_procedure">Procedure</a></li>
+            <li><a href="#archives" data-i18n="nav_archives">Archives</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="#join" class="join-btn" data-i18n="nav_join">Join Us</a></li>
           </ul>
         </nav>
+        <div class="lang-wrap">
+          <label for="langSelect" data-i18n="lang_label">Language</label>
+          <span class="lang-select-wrap">
+            <select id="langSelect" aria-label="Select language">
+              <option value="en">🇬🇧 English</option>
+              <option value="fr">🇫🇷 Français</option>
+              <option value="es">🇪🇸 Español</option>
+              <option value="de">🇩🇪 Deutsch</option>
+              <option value="it">🇮🇹 Italiano</option>
+              <option value="pt">🇵🇹 Português</option>
+              <option value="nl">🇳🇱 Nederlands</option>
+            </select>
+          </span>
+        </div>
       </div>
     </header>
 
@@ -56,28 +70,28 @@
           <circle cx="60" cy="70" r="5.5" fill="#c9a24b"/>
           <path d="M60 6 L60 57 M24 98 L52 80 M96 98 L68 80" stroke="#c9a24b" stroke-width="1.2" opacity=".7"/>
         </svg>
-        <p class="kicker">The Official Organization</p>
-        <h1><span class="white">WELCOME TO</span><span class="goldline">THE ILLUMINATI</span><span class="goldline">ORDER</span></h1>
+        <p class="kicker" data-i18n="hero_kicker">The Official Organization</p>
+        <h1><span class="white" data-i18n="hero_welcome">WELCOME TO</span><span class="goldline">THE ILLUMINATI</span><span class="goldline" data-i18n="hero_order">ORDER</span></h1>
         <hr class="rule" />
-        <p class="lede">An exclusive global brotherhood of world leaders, business authorities, innovators, artists, and visionaries united by a single purpose — the advancement and protection of the human species.</p>
+        <p class="lede" data-i18n="hero_lede">An exclusive global brotherhood of world leaders, business authorities, innovators, artists, and visionaries united by a single purpose — the advancement and protection of the human species.</p>
         <div class="cta-row">
-          <a class="btn btn-gold" href="#join">Join The Illuminati Order</a>
-          <a class="btn btn-ghost" href="#about">Learn More</a>
+          <a class="btn btn-gold" href="#join" data-i18n="hero_join">Join The Illuminati Order</a>
+          <a class="btn btn-ghost" href="#about" data-i18n="learn_more">Learn More</a>
         </div>
       </section>
 
       <!-- QUOTE -->
       <div class="quote-band">
-        <blockquote>&ldquo;Above all divisions of race, nationality, or creed — every human life holds equal worth. The Illuminati Order exists to guard the future of the entire human species.&rdquo;</blockquote>
+        <blockquote data-i18n="quote">&ldquo;Above all divisions of race, nationality, or creed — every human life holds equal worth. The Illuminati Order exists to guard the future of the entire human species.&rdquo;</blockquote>
       </div>
 
       <!-- MESSAGE -->
       <section class="section" id="about" style="padding-bottom:4.5rem;">
         <div class="wrap">
-          <p class="kicker">Official Message</p>
-          <h2 class="section-title">A MESSAGE FROM <span class="gold">THE ILLUMINATI ORDER</span></h2>
+          <p class="kicker" data-i18n="msg_kicker">Official Message</p>
+          <h2 class="section-title"><span data-i18n="msg_title_a">A MESSAGE FROM</span> <span class="gold">THE ILLUMINATI ORDER</span></h2>
           <hr class="rule" />
-          <p class="section-sub">Watch the official introduction to The Illuminati Order — who we are, what we stand for, and why we exist.</p>
+          <p class="section-sub"><span data-i18n="msg_sub">Watch the official introduction to The Illuminati Order — who we are, what we stand for, and why we exist.</p>
 
           <figure class="video-frame" style="margin-left:auto;margin-right:auto;">
             <img src="assets/images/artwork-1.webp" alt="A bronze classical statue in profile before a starfield, facing a glowing triangle with an eye at its centre" />
@@ -94,9 +108,9 @@
           <div class="video-msg" id="videoMsg" role="region" aria-label="The official introduction">
             <p class="serif">The Official Introduction</p>
             <p>The Illuminati is an elite organization of world leaders, business authorities, innovators, artists, and other influential members of this planet. Our coalition unites influencers of all political, religious, and geographical backgrounds to further the prosperity of the human species as a whole.</p>
-            <p>Fear not for the future of humanity: living humans evolve at a rapid pace, and the human species is guarded by a coalition of its most elite members. Every human is guided by an inner compass that points toward the Light.</p>
+            <p data-i18n="belief_p3">Fear not for the future of humanity: living humans evolve at a rapid pace, and the human species is guarded by a coalition of its most elite members. Every human is guided by an inner compass that points toward the Light.</p>
           </div>
-          <p class="video-note">Watch the full video to understand the true purpose of The Illuminati Elites.</p>
+          <p class="video-note" data-i18n="video_note">Watch the full video to understand the true purpose of The Illuminati Elites.</p>
         </div>
       </section>
 
@@ -104,10 +118,10 @@
       <section class="section" style="padding-top:2rem;">
         <div class="wrap intro-grid">
           <div>
-            <h2>A BRIEF<br />INTRODUCTION TO<br /><span class="gold">THE ILLUMINATI ORDER</span></h2>
-            <p>The Illuminati Order is an elite organization comprising world leaders, business authorities, innovators, artists, and other influential members committed to one cause — the prosperity and survival of humanity.</p>
-            <p>Our coalition unites members of all political, religious, and geographical backgrounds under a single guiding principle: that the well-being of the human species transcends any individual, any nation, or any ideology.</p>
-            <a class="btn btn-ghost" href="#beliefs">Discover Our Purpose</a>
+            <h2><span data-i18n="intro_title">A BRIEF<br />INTRODUCTION TO<br /></span><span class="gold">THE ILLUMINATI ORDER</span></h2>
+            <p data-i18n="intro_p1">The Illuminati Order is an elite organization comprising world leaders, business authorities, innovators, artists, and other influential members committed to one cause — the prosperity and survival of humanity.</p>
+            <p data-i18n="intro_p2">Our coalition unites members of all political, religious, and geographical backgrounds under a single guiding principle: that the well-being of the human species transcends any individual, any nation, or any ideology.</p>
+            <a class="btn btn-ghost" href="#beliefs"><span data-i18n="intro_btn">Discover Our Purpose</span></a>
           </div>
           <div class="stats">
             <div class="stat"><div class="num">190+</div><div class="lbl">Countries<br />Represented</div></div>
@@ -127,18 +141,18 @@
             <circle cx="60" cy="64" r="10" stroke="#c9a24b" stroke-width="2"/>
             <circle cx="60" cy="64" r="4" fill="#c9a24b"/>
           </svg>
-          <p class="kicker">Our Story — From the Archives</p>
-          <h2 class="section-title">THE ETERNAL OATH OF<br /><span class="gold">THE ILLUMINATI</span></h2>
+          <p class="kicker" data-i18n="oath_kicker">Our Story — From the Archives</p>
+          <h2 class="section-title"><span data-i18n="oath_title">THE ETERNAL OATH OF<br /></span><span class="gold">THE ILLUMINATI</span></h2>
           <hr class="rule" />
-          <p class="fear">FEAR NOT!</p>
-          <p>Since our origination, Illuminati members have dedicated themselves to the advancement of the human species by taking oaths of commitment. These pledges are a core tradition of the Illuminati, formed as written contracts between a single person and all members of humanity.</p>
-          <p>The first pledge of the Illuminati is called the Eternal Oath.</p>
+          <p class="fear" data-i18n="oath_fear">FEAR NOT!</p>
+          <p data-i18n="oath_p1">Since our origination, Illuminati members have dedicated themselves to the advancement of the human species by taking oaths of commitment. These pledges are a core tradition of the Illuminati, formed as written contracts between a single person and all members of humanity.</p>
+          <p data-i18n="oath_p2">The first pledge of the Illuminati is called the Eternal Oath.</p>
         </div>
       </section>
 
       <!-- BELIEFS -->
       <section class="beliefs" id="beliefs">
-        <div class="beliefs-strip">Our Core Beliefs</div>
+        <div class="beliefs-strip" data-i18n="beliefs_strip">Our Core Beliefs</div>
         <div class="beliefs-grid">
           <article class="belief b1">
             <svg class="icon" viewBox="0 0 100 88" fill="none" aria-hidden="true">
@@ -147,9 +161,9 @@
               <circle cx="50" cy="58" r="4" fill="#c9a24b"/>
               <path d="M50 4 L50 47 M20 84 L42 68 M80 84 L58 68" stroke="#c9a24b" stroke-width="1.1" opacity=".7"/>
             </svg>
-            <h3>The Pyramid</h3>
-            <p>Money is not the root of all evil — money is the route to all freedom. The selfish pursuit of money is a hollow goal, but the pursuit of the goodness that money can create is one of humanity&rsquo;s greatest responsibilities.</p>
-            <a class="btn btn-ghost btn-small" href="#join">Learn More</a>
+            <h3 data-i18n="belief_pyramid">The Pyramid</h3>
+            <p data-i18n="belief_p1">Money is not the root of all evil — money is the route to all freedom. The selfish pursuit of money is a hollow goal, but the pursuit of the goodness that money can create is one of humanity&rsquo;s greatest responsibilities.</p>
+            <a class="btn btn-ghost btn-small" href="#join" data-i18n="learn_more">Learn More</a>
           </article>
           <article class="belief b2">
             <svg class="icon" viewBox="0 0 100 88" fill="none" aria-hidden="true">
@@ -158,9 +172,9 @@
               <circle cx="50" cy="57" r="6.5" stroke="#c9a24b" stroke-width="2"/>
               <circle cx="50" cy="57" r="2.4" fill="#c9a24b"/>
             </svg>
-            <h3>The Eye</h3>
-            <p>Living humans evolve at a rapid pace and continue to advance in ability through study, practice, and self-improvement. The human species is guarded by a coalition of its most elite members called the Illuminati.</p>
-            <a class="btn btn-ghost btn-small" href="#join">Learn More</a>
+            <h3 data-i18n="belief_eye">The Eye</h3>
+            <p data-i18n="belief_p2">Living humans evolve at a rapid pace and continue to advance in ability through study, practice, and self-improvement. The human species is guarded by a coalition of its most elite members called the Illuminati.</p>
+            <a class="btn btn-ghost btn-small" href="#join" data-i18n="learn_more">Learn More</a>
           </article>
           <article class="belief b3">
             <svg class="icon" viewBox="0 0 100 88" fill="none" aria-hidden="true">
@@ -169,9 +183,9 @@
               <path d="M50 45 L50 30 M50 58 L62 50" stroke="#c9a24b" stroke-width="1.6"/>
               <circle cx="50" cy="58" r="3" fill="#c9a24b"/>
             </svg>
-            <h3>The Light</h3>
+            <h3 data-i18n="belief_light">The Light</h3>
             <p>Every human is guided by an inner compass that points toward the Light, revealing truth and direction amidst decisions. All human spiritual beliefs ultimately seek the Light in ways differing only in form and function.</p>
-            <a class="btn btn-ghost btn-small" href="#join">Learn More</a>
+            <a class="btn btn-ghost btn-small" href="#join" data-i18n="learn_more">Learn More</a>
           </article>
           <article class="belief b4">
             <svg class="icon" viewBox="0 0 100 88" fill="none" aria-hidden="true">
@@ -179,9 +193,9 @@
               <path d="M50 14 L82 72 L18 72 Z" stroke="#c9a24b" stroke-width="2"/>
               <circle cx="50" cy="56" r="5" fill="#c9a24b"/>
             </svg>
-            <h3>The Eternal Circle</h3>
-            <p>Every human is one part of a larger, eternal design — individual gears in a clock that has no end. Though they may never realize it, a person&rsquo;s actions have the power to alter the future of the entire world.</p>
-            <a class="btn btn-ghost btn-small" href="#join">Learn More</a>
+            <h3 data-i18n="belief_circle">The Eternal Circle</h3>
+            <p data-i18n="belief_p4">Every human is one part of a larger, eternal design — individual gears in a clock that has no end. Though they may never realize it, a person&rsquo;s actions have the power to alter the future of the entire world.</p>
+            <a class="btn btn-ghost btn-small" href="#join" data-i18n="learn_more">Learn More</a>
           </article>
         </div>
       </section>
@@ -189,10 +203,10 @@
       <!-- MEMBERS -->
       <section class="section" id="members" style="padding-top:5rem;">
         <div class="wrap">
-          <p class="kicker">People of the Illuminati Order</p>
-          <h2 class="section-title">VOICES FROM <span class="gold">OUR MEMBERS</span></h2>
+          <p class="kicker" data-i18n="members_kicker">People of the Illuminati Order</p>
+          <h2 class="section-title"><span data-i18n="members_title_a">VOICES FROM</span> <span class="gold" data-i18n="members_title_b">OUR MEMBERS</span></h2>
           <hr class="rule" />
-          <p class="section-sub">Millions of people from all walks of life have committed themselves to the Illuminati&rsquo;s global work for the betterment of the human species. By forgoing all divisions of religious, geographical, or political beliefs, followers of Illuminatiam strive to form a planet where all people, in all places, can live in Abundance.</p>
+          <p class="section-sub" data-i18n="members_sub">Millions of people from all walks of life have committed themselves to the Illuminati&rsquo;s global work for the betterment of the human species. By forgoing all divisions of religious, geographical, or political beliefs, followers of Illuminatiam strive to form a planet where all people, in all places, can live in Abundance.</p>
           <div class="members-grid">
             <article class="member">
               <div class="avatar" aria-hidden="true">A</div>
@@ -219,25 +233,25 @@
       <!-- BENEFITS -->
       <section class="section benefits" id="benefits">
         <div class="wrap">
-          <p class="kicker">Membership Benefits</p>
-          <h2 class="section-title">WHAT MEMBERS <span class="gold">DEDICATE THEMSELVES TO</span></h2>
+          <p class="kicker" data-i18n="benefits_kicker">Membership Benefits</p>
+          <h2 class="section-title"><span data-i18n="benefits_title_a">WHAT MEMBERS</span> <span class="gold" data-i18n="benefits_title_b">DEDICATE THEMSELVES TO</span></h2>
           <hr class="rule" />
-          <p class="section-sub">The Illuminati is a powerful and carefully guarded organization. Its members commit themselves to three pursuits, held always in service of the human species.</p>
+          <p class="section-sub" data-i18n="benefits_sub">The Illuminati is a powerful and carefully guarded organization. Its members commit themselves to three pursuits, held always in service of the human species.</p>
           <div class="benefits-grid">
             <article class="benefit">
               <span class="glyph">◆</span>
-              <h3>WEALTH</h3>
-              <p>Be ever prepared. Live this moment as though it is your last moment on this earth and acquire the maximum spiritual wealth here and now. Guided by your soul, you work toward an abundance of valuable assets — held as a responsibility to create goodness for humanity, never as an end in itself.</p>
+              <h3 data-i18n="benefit_wealth">WEALTH</h3>
+              <p data-i18n="benefit_wealth_p">Be ever prepared. Live this moment as though it is your last moment on this earth and acquire the maximum spiritual wealth here and now. Guided by your soul, you work toward an abundance of valuable assets — held as a responsibility to create goodness for humanity, never as an end in itself.</p>
             </article>
             <article class="benefit">
               <span class="glyph">◆</span>
-              <h3>POWER</h3>
-              <p>It is through faith that we move from the known to the unknown. Members seek influence — economic, technological, and cultural — so that sorrow, pain, grief, and fear may be eliminated, and all may know happiness and peace instead of suffering.</p>
+              <h3 data-i18n="benefit_power">POWER</h3>
+              <p data-i18n="benefit_power_p">It is through faith that we move from the known to the unknown. Members seek influence — economic, technological, and cultural — so that sorrow, pain, grief, and fear may be eliminated, and all may know happiness and peace instead of suffering.</p>
             </article>
             <article class="benefit">
               <span class="glyph">◆</span>
-              <h3>FAME</h3>
-              <p>Those who devote themselves fully to the advancement of humanity earn a lasting name. Successful people stay on their toes at all times — and a life lived for the species is remembered with honour in your community, your country, and the world at large.</p>
+              <h3 data-i18n="benefit_fame">FAME</h3>
+              <p data-i18n="benefit_fame_p">Those who devote themselves fully to the advancement of humanity earn a lasting name. Successful people stay on their toes at all times — and a life lived for the species is remembered with honour in your community, your country, and the world at large.</p>
             </article>
           </div>
         </div>
@@ -246,25 +260,25 @@
       <!-- PROCEDURE -->
       <section class="section" id="procedure">
         <div class="wrap">
-          <p class="kicker">Membership Procedure</p>
-          <h2 class="section-title">HOW TO JOIN <span class="gold">THE ILLUMINATI ORDER</span></h2>
+          <p class="kicker" data-i18n="proc_kicker">Membership Procedure</p>
+          <h2 class="section-title"><span data-i18n="proc_title_a">HOW TO JOIN</span> <span class="gold">THE ILLUMINATI ORDER</span></h2>
           <hr class="rule" />
-          <p class="section-sub">Membership is open to individuals of all backgrounds — we welcome business leaders, artists, academics, innovators, politicians, and visionaries from across the world.</p>
+          <p class="section-sub" data-i18n="proc_sub">Membership is open to individuals of all backgrounds — we welcome business leaders, artists, academics, innovators, politicians, and visionaries from across the world.</p>
           <div class="steps">
             <div class="step">
               <div class="n">I</div>
-              <h3>Submit Your Application</h3>
-              <p>Send your application through the official membership form on this page, with your name, country, and your reason for seeking the Order.</p>
+              <h3 data-i18n="step1_title">Submit Your Application</h3>
+              <p data-i18n="step1_p">Send your application through the official membership form on this page, with your name, country, and your reason for seeking the Order.</p>
             </div>
             <div class="step">
               <div class="n">II</div>
-              <h3>Personal Review</h3>
-              <p>We review all applications personally and contact qualified candidates directly. Membership is open to individuals of exceptional character, vision, and commitment.</p>
+              <h3 data-i18n="step2_title">Personal Review</h3>
+              <p data-i18n="step2_p">We review all applications personally and contact qualified candidates directly. Membership is open to individuals of exceptional character, vision, and commitment.</p>
             </div>
             <div class="step">
               <div class="n">III</div>
-              <h3>Take the Eternal Oath</h3>
-              <p>Accepted candidates pledge themselves to the advancement of the human species by taking the Eternal Oath — the first pledge of the Illuminati.</p>
+              <h3 data-i18n="step3_title">Take the Eternal Oath</h3>
+              <p data-i18n="step3_p">Accepted candidates pledge themselves to the advancement of the human species by taking the Eternal Oath — the first pledge of the Illuminati.</p>
             </div>
           </div>
         </div>
@@ -272,10 +286,10 @@
 
       <!-- CTA -->
       <section class="cta-band">
-        <h2>ARE YOU READY TO JOIN<br /><span class="gold">THE ILLUMINATI ORDER?</span></h2>
+        <h2><span data-i18n="cta_title_a">ARE YOU READY TO JOIN<br /></span><span class="gold">THE ILLUMINATI ORDER?</span></h2>
         <hr class="rule" />
-        <p>Membership in The Illuminati Order is open to individuals of exceptional character, vision, and commitment to the human species.</p>
-        <a class="btn btn-gold" href="#join">Begin Your Application</a>
+        <p data-i18n="cta_p">Membership in The Illuminati Order is open to individuals of exceptional character, vision, and commitment to the human species.</p>
+        <a class="btn btn-gold" href="#join" data-i18n="cta_btn">Begin Your Application</a>
       </section>
 
       <!-- INFO + JOIN -->
@@ -295,26 +309,26 @@
           </div>
           <form class="apply" id="applyForm">
             <div>
-              <label for="f-name">Full Name</label>
+              <label for="f-name" data-i18n="form_name">Full Name</label>
               <input id="f-name" name="name" type="text" autocomplete="name" required />
             </div>
             <div>
-              <label for="f-email">Email Address</label>
+              <label for="f-email" data-i18n="form_email">Email Address</label>
               <input id="f-email" name="email" type="email" autocomplete="email" required />
             </div>
             <div>
-              <label for="f-country">Country</label>
+              <label for="f-country" data-i18n="form_country">Country</label>
               <select id="f-country" name="country" required>
-                <option value="">Select your country…</option>
+                <option value="" data-i18n="form_country_select">Select your country…</option>
                 <option>United States</option><option>United Kingdom</option><option>Canada</option><option>Australia</option><option>France</option><option>Germany</option><option>Italy</option><option>Spain</option><option>Netherlands</option><option>Belgium</option><option>Switzerland</option><option>Sweden</option><option>Norway</option><option>Denmark</option><option>Other</option>
               </select>
             </div>
             <div>
-              <label for="f-msg">Why do you seek the Order?</label>
+              <label for="f-msg" data-i18n="form_why">Why do you seek the Order?</label>
               <textarea id="f-msg" name="message" required></textarea>
             </div>
-            <button class="btn btn-gold" type="submit">Submit Application</button>
-            <p class="form-note">Submitting opens your email app with your application addressed to the Order. All applications are reviewed personally.</p>
+            <button class="btn btn-gold" type="submit" data-i18n="form_submit">Submit Application</button>
+            <p class="form-note" data-i18n="form_note">Submitting opens your email app with your application addressed to the Order. All applications are reviewed personally.</p>
           </form>
         </div>
       </section>
@@ -375,8 +389,9 @@
       <p class="foot-note">The Illuminati Order is an independent organization.</p>
     </footer>
 
-    <a class="float-join" href="#join">JOIN US ✦</a>
+    <a class="float-join" href="#join" data-i18n="float_join">JOIN US ✦</a>
 
+    <script src="js/app.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
