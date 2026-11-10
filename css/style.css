@@ -101,6 +101,28 @@
       }
       .burger span { display: block; width: 20px; height: 2px; background: var(--gold); }
 
+      /* ---------- Language dropdown ---------- */
+      .lang-wrap { display: flex; align-items: center; gap: 0.55rem; flex: none; margin-left: 0.5rem; }
+      .lang-wrap label {
+        font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
+        color: var(--gold); font-weight: 600; white-space: nowrap;
+      }
+      .lang-select-wrap { position: relative; display: inline-flex; align-items: center; }
+      .lang-select-wrap::after {
+        content: "▾"; position: absolute; right: 0.7rem; pointer-events: none;
+        color: var(--gold); font-size: 0.8rem; line-height: 1;
+      }
+      #langSelect {
+        appearance: none; -webkit-appearance: none;
+        background: #0d1017; color: var(--ink);
+        border: 1px solid var(--line); border-radius: 2px;
+        font-family: "Jost", sans-serif; font-size: 0.88rem; font-weight: 500;
+        letter-spacing: 0.04em; padding: 0.55rem 2rem 0.55rem 0.85rem;
+        min-height: 44px; cursor: pointer; max-width: 168px;
+      }
+      #langSelect:focus { outline: 1px solid var(--gold); border-color: var(--gold); }
+      #langSelect option { background: #0d1017; color: var(--ink); }
+
       /* ---------- Hero ---------- */
       .hero {
         position: relative; text-align: center; overflow: hidden;
@@ -348,6 +370,16 @@
         .foot-grid { grid-template-columns: 1fr 1fr; gap: 2.2rem; }
         .hero { padding: 5rem 1.25rem 5.5rem; }
         .topbar { letter-spacing: 0.18em; font-size: 0.62rem; }
+      }
+      @media (max-width: 1080px) {
+        .lang-wrap { margin-left: auto; order: 2; }
+        .burger { margin-left: 0.6rem; order: 3; }
+        nav.main { order: 4; }
+      }
+      @media (max-width: 640px) {
+        .lang-wrap label { display: none; }
+        #langSelect { max-width: 118px; font-size: 0.82rem; padding-left: 0.6rem; }
+        .nav-row { gap: 0.8rem; padding-left: 1rem; padding-right: 1rem; }
       }
       @media (max-width: 540px) {
         .beliefs-grid { grid-template-columns: 1fr; }
