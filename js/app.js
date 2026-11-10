@@ -184,26 +184,216 @@
             form_name: "Volledige naam", form_email: "E-mailadres", form_country: "Land", form_country_select: "Selecteer je land…", form_why: "Waarom zoek je de Orde?", form_submit: "Aanvraag indienen", form_note: "Bij verzenden opent je e-mailapp met je aanvraag gericht aan de Orde. Alle aanvragen worden persoonlijk beoordeeld.", float_join: "WORD LID ✦", video_note: "Bekijk de volledige video om het ware doel van de Illuminati-elites te begrijpen."
           }
         };
+        // Extra translations for sections that previously had no language keys
+        // (stats, member voices, worldwide / info block, country names, footer).
+        var EXTRA = {
+          fr: {
+            brand_sub: "Site officiel", video_title: "Publicité TV Illuminati - Officielle", video_msg_title: "La présentation officielle",
+            video_msg_p1: "Les Illuminati sont une organisation d'élite de dirigeants mondiaux, d'autorités économiques, d'innovateurs, d'artistes et d'autres membres influents de cette planète. Notre coalition unit des personnalités de tous horizons politiques, religieux et géographiques pour faire progresser la prospérité de l'espèce humaine dans son ensemble.",
+            video_msg_p2: "N'ayez pas peur pour l'avenir de l'humanité : les humains évoluent rapidement, et l'espèce humaine est protégée par une coalition de ses membres les plus éminents. Chaque humain est guidé par une boussole intérieure qui pointe vers la Lumière.",
+            stat_countries: "Pays<br />représentés", stat_global: "MONDIAL", stat_network: "Réseau d'élites", stat_one: "UNE", stat_species: "Espèce humaine", stat_founding: "L'année de<br />notre fondation",
+            member1_quote: "« L'Ordre Illuminati m'a orienté vers un but plus grand que moi-même. Chaque être humain mérite mieux — et cet Ordre existe pour l'apporter. »",
+            member2_quote: "« J'ai des collègues dans le monde entier qui partagent une même vision : le bien-être de l'espèce humaine dépasse toute nation et toute idéologie. »",
+            member3_quote: "« Depuis que j'ai rejoint l'Ordre Illuminati, j'ai trouvé une direction, une discipline et une fraternité qui s'étend sur tout le globe et partage votre vision. »",
+            info_title: "L'Ordre Illuminati — Organisation officielle",
+            info_p1: "L'Ordre Illuminati est l'organisation officielle des personnes d'élite engagées pour le progrès de l'espèce humaine. Notre seul objectif est le progrès humain.",
+            info_how_title: "Comment rejoindre l'Ordre Illuminati",
+            info_how_p: "Pour rejoindre l'Ordre Illuminati, envoyez simplement votre candidature via notre formulaire officiel. Nous examinons toutes les candidatures personnellement et contactons directement les candidats qualifiés. L'adhésion est ouverte aux personnes de tous horizons — dirigeants d'entreprise, artistes, universitaires, innovateurs, politiciens et visionnaires du monde entier.",
+            info_world_title: "L'Ordre Illuminati dans le monde",
+            info_world_p: "L'Ordre Illuminati compte des membres aux États-Unis, au Royaume-Uni, au Canada, en Australie et dans toute l'Europe, notamment en France, en Allemagne, en Italie, en Espagne, aux Pays-Bas, en Belgique, en Suisse, en Suède, en Norvège et au Danemark. Notre réseau continue de grandir à mesure que de nouvelles personnes découvrent notre organisation.",
+            info_call: "Contactez-nous — ",
+            chip_usa: "États-Unis", chip_uk: "Royaume-Uni", chip_canada: "Canada", chip_australia: "Australie", chip_france: "France", chip_germany: "Allemagne", chip_italy: "Italie", chip_spain: "Espagne", chip_netherlands: "Pays-Bas", chip_belgium: "Belgique", chip_switzerland: "Suisse", chip_sweden: "Suède", chip_norway: "Norvège", chip_denmark: "Danemark",
+            country_us: "États-Unis", country_uk: "Royaume-Uni", country_canada: "Canada", country_au: "Australie", country_fr: "France", country_de: "Allemagne", country_it: "Italie", country_es: "Espagne", country_nl: "Pays-Bas", country_be: "Belgique", country_ch: "Suisse", country_se: "Suède", country_no: "Norvège", country_dk: "Danemark",
+            form_country_other: "Autre",
+            foot_brand_p: "Le site officiel de l'Ordre Illuminati — une organisation mondiale qui unit des dirigeants influents, des innovateurs et des visionnaires pour le progrès de l'humanité.",
+            foot_org_title: "Organisation", foot_members_link: "Nos membres", foot_members_title: "Membres",
+            foot_usa_chapter: "Chapitre États-Unis", foot_uk_chapter: "Chapitre Royaume-Uni", foot_canada_chapter: "Chapitre Canada", foot_australia_chapter: "Chapitre Australie",
+            foot_info_title: "Informations", foot_contact: "Contactez-nous", foot_privacy: "Politique de confidentialité", foot_terms: "Conditions d'utilisation", foot_privacy_short: "Confidentialité", foot_terms_short: "Conditions",
+            foot_note: "L'Ordre Illuminati est une organisation indépendante.", doc_title: "L'Ordre Illuminati — Site officiel"
+          },
+          es: {
+            brand_sub: "Sitio web oficial", video_title: "Anuncio de TV Illuminati - Oficial", video_msg_title: "La presentación oficial",
+            video_msg_p1: "Los Illuminati son una organización de élite de líderes mundiales, autoridades empresariales, innovadores, artistas y otros miembros influyentes de este planeta. Nuestra coalición une a personas de todos los orígenes políticos, religiosos y geográficos para impulsar la prosperidad de la especie humana en su conjunto.",
+            video_msg_p2: "No temas por el futuro de la humanidad: los seres humanos evolucionan rápidamente y la especie humana está protegida por una coalición de sus miembros más élite. Cada ser humano es guiado por una brújula interior que apunta hacia la Luz.",
+            stat_countries: "Países<br />representados", stat_global: "GLOBAL", stat_network: "Red de élites", stat_one: "UNA", stat_species: "Especie humana", stat_founding: "El año de<br />nuestra fundación",
+            member1_quote: "« La Orden Illuminati me señaló un propósito mayor que yo mismo. Todo ser humano merece algo mejor — y esta Orden existe para lograrlo. »",
+            member2_quote: "« Tengo colegas en todo el mundo que comparten una visión: que el bienestar de la especie humana trasciende cualquier nación o ideología. »",
+            member3_quote: "« Desde que me uní a la Orden Illuminati, he encontrado dirección, disciplina y una hermandad que abarca todo el mundo y comparte tu visión. »",
+            info_title: "La Orden Illuminati — Organización oficial",
+            info_p1: "La Orden Illuminati es la organización oficial de personas de élite comprometidas con el avance de la especie humana. Nuestro único enfoque es el progreso humano.",
+            info_how_title: "Cómo unirse a la Orden Illuminati",
+            info_how_p: "Para unirte a la Orden Illuminati, simplemente envía tu solicitud a través de nuestro formulario oficial. Revisamos todas las solicitudes personalmente y contactamos directamente a los candidatos calificados. La membresía está abierta a personas de todos los orígenes: líderes empresariales, artistas, académicos, innovadores, políticos y visionarios de todo el mundo.",
+            info_world_title: "La Orden Illuminati en el mundo",
+            info_world_p: "La Orden Illuminati tiene miembros en EE. UU., Reino Unido, Canadá, Australia y en toda Europa, incluidos Francia, Alemania, Italia, España, Países Bajos, Bélgica, Suiza, Suecia, Noruega y Dinamarca. Nuestra red sigue creciendo a medida que más personas con propósito descubren nuestra organización.",
+            info_call: "Contáctanos — ",
+            chip_usa: "EE. UU.", chip_uk: "Reino Unido", chip_canada: "Canadá", chip_australia: "Australia", chip_france: "Francia", chip_germany: "Alemania", chip_italy: "Italia", chip_spain: "España", chip_netherlands: "Países Bajos", chip_belgium: "Bélgica", chip_switzerland: "Suiza", chip_sweden: "Suecia", chip_norway: "Noruega", chip_denmark: "Dinamarca",
+            country_us: "Estados Unidos", country_uk: "Reino Unido", country_canada: "Canadá", country_au: "Australia", country_fr: "Francia", country_de: "Alemania", country_it: "Italia", country_es: "España", country_nl: "Países Bajos", country_be: "Bélgica", country_ch: "Suiza", country_se: "Suecia", country_no: "Noruega", country_dk: "Dinamarca",
+            form_country_other: "Otro",
+            foot_brand_p: "El sitio web oficial de la Orden Illuminati — una organización global que une a líderes influyentes, innovadores y visionarios para el avance de la humanidad.",
+            foot_org_title: "Organización", foot_members_link: "Nuestros miembros", foot_members_title: "Miembros",
+            foot_usa_chapter: "Capítulo EE. UU.", foot_uk_chapter: "Capítulo Reino Unido", foot_canada_chapter: "Capítulo Canadá", foot_australia_chapter: "Capítulo Australia",
+            foot_info_title: "Información", foot_contact: "Contáctanos", foot_privacy: "Política de privacidad", foot_terms: "Términos de uso", foot_privacy_short: "Privacidad", foot_terms_short: "Términos",
+            foot_note: "La Orden Illuminati es una organización independiente.", doc_title: "La Orden Illuminati — Sitio web oficial"
+          },
+          de: {
+            brand_sub: "Offizielle Website", video_title: "Illuminati TV-Werbung - Offiziell", video_msg_title: "Die offizielle Einführung",
+            video_msg_p1: "Die Illuminati sind eine Eliteorganisation aus Staatsführern, Wirtschaftsgrößen, Innovatoren, Künstlern und anderen einflussreichen Mitgliedern dieses Planeten. Unsere Koalition vereint Einflussreiche aller politischen, religiösen und geografischen Hintergründe, um den Wohlstand der Menschheit als Ganzes zu fördern.",
+            video_msg_p2: "Fürchte dich nicht um die Zukunft der Menschheit: Die Menschen entwickeln sich rasch weiter, und die Menschheit wird von einer Koalition ihrer elitärsten Mitglieder beschützt. Jeder Mensch wird von einem inneren Kompass geleitet, der auf das Licht zeigt.",
+            stat_countries: "Vertretene<br />Länder", stat_global: "GLOBAL", stat_network: "Netzwerk der Eliten", stat_one: "EINE", stat_species: "Menschliche Spezies", stat_founding: "Das Jahr<br />unserer Gründung",
+            member1_quote: "„Der Illuminati-Orden hat mir einen Zweck gezeigt, der größer ist als ich selbst. Jeder Mensch verdient Besseres — und dieser Orden existiert, um es zu bringen.“",
+            member2_quote: "„Ich habe Kollegen auf der ganzen Welt, die eine Vision teilen: Das Wohlergehen der Menschheit steht über jeder Nation und jeder Ideologie.“",
+            member3_quote: "„Seit ich dem Illuminati-Orden beigetreten bin, habe ich Richtung, Disziplin und eine Bruderschaft gefunden, die den Globus umspannt und Ihre Vision teilt.“",
+            info_title: "Der Illuminati-Orden — Offizielle Organisation",
+            info_p1: "Der Illuminati-Orden ist die offizielle Organisation für Elitepersonen, die sich dem Fortschritt der Menschheit verschrieben haben. Unser einziger Fokus ist der menschliche Fortschritt.",
+            info_how_title: "So treten Sie dem Illuminati-Orden bei",
+            info_how_p: "Um dem Illuminati-Orden beizutreten, reichen Sie einfach Ihre Bewerbung über unser offizielles Formular ein. Wir prüfen alle Bewerbungen persönlich und kontaktieren qualifizierte Kandidaten direkt. Die Mitgliedschaft steht Menschen aller Hintergründe offen — Wirtschaftsführer, Künstler, Akademiker, Innovatoren, Politiker und Visionäre aus aller Welt.",
+            info_world_title: "Der Illuminati-Orden weltweit",
+            info_world_p: "Der Illuminati-Orden hat Mitglieder in den USA, im Vereinigten Königreich, in Kanada, Australien und in ganz Europa, darunter Frankreich, Deutschland, Italien, Spanien, die Niederlande, Belgien, die Schweiz, Schweden, Norwegen und Dänemark. Unser Netzwerk wächst weiter, da immer mehr zielstrebige Menschen unsere Organisation entdecken.",
+            info_call: "Kontakt — ",
+            chip_usa: "USA", chip_uk: "Vereinigtes Königreich", chip_canada: "Kanada", chip_australia: "Australien", chip_france: "Frankreich", chip_germany: "Deutschland", chip_italy: "Italien", chip_spain: "Spanien", chip_netherlands: "Niederlande", chip_belgium: "Belgien", chip_switzerland: "Schweiz", chip_sweden: "Schweden", chip_norway: "Norwegen", chip_denmark: "Dänemark",
+            country_us: "Vereinigte Staaten", country_uk: "Vereinigtes Königreich", country_canada: "Kanada", country_au: "Australien", country_fr: "Frankreich", country_de: "Deutschland", country_it: "Italien", country_es: "Spanien", country_nl: "Niederlande", country_be: "Belgien", country_ch: "Schweiz", country_se: "Schweden", country_no: "Norwegen", country_dk: "Dänemark",
+            form_country_other: "Andere",
+            foot_brand_p: "Die offizielle Website des Illuminati-Ordens — eine globale Organisation, die einflussreiche Führer, Innovatoren und Visionäre für den Fortschritt der Menschheit vereint.",
+            foot_org_title: "Organisation", foot_members_link: "Unsere Mitglieder", foot_members_title: "Mitglieder",
+            foot_usa_chapter: "USA-Kapitel", foot_uk_chapter: "UK-Kapitel", foot_canada_chapter: "Kanada-Kapitel", foot_australia_chapter: "Australien-Kapitel",
+            foot_info_title: "Informationen", foot_contact: "Kontakt", foot_privacy: "Datenschutzrichtlinie", foot_terms: "Nutzungsbedingungen", foot_privacy_short: "Datenschutz", foot_terms_short: "Bedingungen",
+            foot_note: "Der Illuminati-Orden ist eine unabhängige Organisation.", doc_title: "Der Illuminati-Orden — Offizielle Website"
+          },
+          it: {
+            brand_sub: "Sito ufficiale", video_title: "Spot TV Illuminati - Ufficiale", video_msg_title: "La presentazione ufficiale",
+            video_msg_p1: "Gli Illuminati sono un'organizzazione d'élite di leader mondiali, autorità economiche, innovatori, artisti e altri membri influenti di questo pianeta. La nostra coalizione unisce persone di ogni provenienza politica, religiosa e geografica per promuovere la prosperità della specie umana nel suo insieme.",
+            video_msg_p2: "Non temere per il futuro dell'umanità: gli esseri umani evolvono rapidamente e la specie umana è protetta da una coalizione dei suoi membri più élite. Ogni essere umano è guidato da una bussola interiore che punta verso la Luce.",
+            stat_countries: "Paesi<br />rappresentati", stat_global: "GLOBALE", stat_network: "Rete di élite", stat_one: "UNA", stat_species: "Specie umana", stat_founding: "L'anno della<br />nostra fondazione",
+            member1_quote: "« L'Ordine Illuminati mi ha indicato uno scopo più grande di me stesso. Ogni essere umano merita di meglio — e questo Ordine esiste per realizzarlo. »",
+            member2_quote: "« Ho colleghi in tutto il mondo che condividono una visione: il benessere della specie umana trascende ogni nazione o ideologia. »",
+            member3_quote: "« Da quando sono entrato nell'Ordine Illuminati, ho trovato direzione, disciplina e una fratellanza che abbraccia il mondo e condivide la tua visione. »",
+            info_title: "L'Ordine Illuminati — Organizzazione ufficiale",
+            info_p1: "L'Ordine Illuminati è l'organizzazione ufficiale per le persone d'élite impegnate nel progresso della specie umana. Il nostro unico obiettivo è il progresso umano.",
+            info_how_title: "Come unirsi all'Ordine Illuminati",
+            info_how_p: "Per unirti all'Ordine Illuminati, invia semplicemente la tua candidatura tramite il nostro modulo ufficiale. Esaminiamo personalmente tutte le candidature e contattiamo direttamente i candidati qualificati. L'iscrizione è aperta a persone di ogni provenienza — leader aziendali, artisti, accademici, innovatori, politici e visionari da tutto il mondo.",
+            info_world_title: "L'Ordine Illuminati nel mondo",
+            info_world_p: "L'Ordine Illuminati ha membri negli USA, nel Regno Unito, in Canada, in Australia e in tutta Europa, inclusi Francia, Germania, Italia, Spagna, Paesi Bassi, Belgio, Svizzera, Svezia, Norvegia e Danimarca. La nostra rete continua a crescere man mano che più persone scoprono la nostra organizzazione.",
+            info_call: "Contattaci — ",
+            chip_usa: "USA", chip_uk: "Regno Unito", chip_canada: "Canada", chip_australia: "Australia", chip_france: "Francia", chip_germany: "Germania", chip_italy: "Italia", chip_spain: "Spagna", chip_netherlands: "Paesi Bassi", chip_belgium: "Belgio", chip_switzerland: "Svizzera", chip_sweden: "Svezia", chip_norway: "Norvegia", chip_denmark: "Danimarca",
+            country_us: "Stati Uniti", country_uk: "Regno Unito", country_canada: "Canada", country_au: "Australia", country_fr: "Francia", country_de: "Germania", country_it: "Italia", country_es: "Spagna", country_nl: "Paesi Bassi", country_be: "Belgio", country_ch: "Svizzera", country_se: "Svezia", country_no: "Norvegia", country_dk: "Danimarca",
+            form_country_other: "Altro",
+            foot_brand_p: "Il sito ufficiale dell'Ordine Illuminati — un'organizzazione globale che unisce leader influenti, innovatori e visionari per il progresso dell'umanità.",
+            foot_org_title: "Organizzazione", foot_members_link: "I nostri membri", foot_members_title: "Membri",
+            foot_usa_chapter: "Capitolo USA", foot_uk_chapter: "Capitolo Regno Unito", foot_canada_chapter: "Capitolo Canada", foot_australia_chapter: "Capitolo Australia",
+            foot_info_title: "Informazioni", foot_contact: "Contattaci", foot_privacy: "Informativa sulla privacy", foot_terms: "Termini di utilizzo", foot_privacy_short: "Privacy", foot_terms_short: "Termini",
+            foot_note: "L'Ordine Illuminati è un'organizzazione indipendente.", doc_title: "L'Ordine Illuminati — Sito ufficiale"
+          },
+          pt: {
+            brand_sub: "Site oficial", video_title: "Anúncio de TV Illuminati - Oficial", video_msg_title: "A apresentação oficial",
+            video_msg_p1: "Os Illuminati são uma organização de elite de líderes mundiais, autoridades empresariais, inovadores, artistas e outros membros influentes deste planeta. A nossa coligação une influenciadores de todas as origens políticas, religiosas e geográficas para promover a prosperidade da espécie humana como um todo.",
+            video_msg_p2: "Não tema pelo futuro da humanidade: os seres humanos evoluem rapidamente e a espécie humana é protegida por uma coligação dos seus membros mais elite. Cada ser humano é guiado por uma bússola interior que aponta para a Luz.",
+            stat_countries: "Países<br />representados", stat_global: "GLOBAL", stat_network: "Rede de elites", stat_one: "UMA", stat_species: "Espécie humana", stat_founding: "O ano da<br />nossa fundação",
+            member1_quote: "« A Ordem Illuminati apontou-me um propósito maior do que eu próprio. Todo o ser humano merece melhor — e esta Ordem existe para o concretizar. »",
+            member2_quote: "« Tenho colegas em todo o mundo que partilham uma visão: o bem-estar da espécie humana transcende qualquer nação ou ideologia. »",
+            member3_quote: "« Desde que me juntei à Ordem Illuminati, encontrei direção, disciplina e uma irmandade que abrange o globo e partilha a sua visão. »",
+            info_title: "A Ordem Illuminati — Organização oficial",
+            info_p1: "A Ordem Illuminati é a organização oficial para pessoas de elite comprometidas com o avanço da espécie humana. O nosso único foco é o progresso humano.",
+            info_how_title: "Como juntar-se à Ordem Illuminati",
+            info_how_p: "Para se juntar à Ordem Illuminati, basta enviar a sua candidatura através do nosso formulário oficial. Revisamos todas as candidaturas pessoalmente e contactamos diretamente os candidatos qualificados. A adesão está aberta a pessoas de todas as origens — líderes empresariais, artistas, académicos, inovadores, políticos e visionários de todo o mundo.",
+            info_world_title: "A Ordem Illuminati no mundo",
+            info_world_p: "A Ordem Illuminati tem membros nos EUA, Reino Unido, Canadá, Austrália e em toda a Europa, incluindo França, Alemanha, Itália, Espanha, Países Baixos, Bélgica, Suíça, Suécia, Noruega e Dinamarca. A nossa rede continua a crescer à medida que mais pessoas descobrem a nossa organização.",
+            info_call: "Contacte-nos — ",
+            chip_usa: "EUA", chip_uk: "Reino Unido", chip_canada: "Canadá", chip_australia: "Austrália", chip_france: "França", chip_germany: "Alemanha", chip_italy: "Itália", chip_spain: "Espanha", chip_netherlands: "Países Baixos", chip_belgium: "Bélgica", chip_switzerland: "Suíça", chip_sweden: "Suécia", chip_norway: "Noruega", chip_denmark: "Dinamarca",
+            country_us: "Estados Unidos", country_uk: "Reino Unido", country_canada: "Canadá", country_au: "Austrália", country_fr: "França", country_de: "Alemanha", country_it: "Itália", country_es: "Espanha", country_nl: "Países Baixos", country_be: "Bélgica", country_ch: "Suíça", country_se: "Suécia", country_no: "Noruega", country_dk: "Dinamarca",
+            form_country_other: "Outro",
+            foot_brand_p: "O site oficial da Ordem Illuminati — uma organização global que une líderes influentes, inovadores e visionários para o avanço da humanidade.",
+            foot_org_title: "Organização", foot_members_link: "Os nossos membros", foot_members_title: "Membros",
+            foot_usa_chapter: "Capítulo EUA", foot_uk_chapter: "Capítulo Reino Unido", foot_canada_chapter: "Capítulo Canadá", foot_australia_chapter: "Capítulo Austrália",
+            foot_info_title: "Informações", foot_contact: "Contacte-nos", foot_privacy: "Política de privacidade", foot_terms: "Termos de utilização", foot_privacy_short: "Privacidade", foot_terms_short: "Termos",
+            foot_note: "A Ordem Illuminati é uma organização independente.", doc_title: "A Ordem Illuminati — Site oficial"
+          },
+          nl: {
+            brand_sub: "Officiële website", video_title: "Illuminati TV-reclame - Officieel", video_msg_title: "De officiële introductie",
+            video_msg_p1: "De Illuminati is een eliteorganisatie van wereldleiders, zakelijke autoriteiten, innovators, kunstenaars en andere invloedrijke leden van deze planeet. Onze coalitie verenigt beïnvloeders van alle politieke, religieuze en geografische achtergronden om de welvaart van de menselijke soort als geheel te bevorderen.",
+            video_msg_p2: "Vrees niet voor de toekomst van de mensheid: mensen evolueren in snel tempo en de menselijke soort wordt bewaakt door een coalitie van haar meest elite leden. Elke mens wordt geleid door een innerlijk kompas dat naar het Licht wijst.",
+            stat_countries: "Vertegenwoordigde<br />landen", stat_global: "WERELDWIJD", stat_network: "Netwerk van elites", stat_one: "ÉÉN", stat_species: "Menselijke soort", stat_founding: "Het jaar van<br />onze oprichting",
+            member1_quote: "« De Illuminati Orde wees mij op een doel dat groter is dan mijzelf. Elk mens verdient beter — en deze Orde bestaat om dat te leveren. »",
+            member2_quote: "« Ik heb collega's over de hele wereld die één visie delen: het welzijn van de menselijke soort overstijgt elke natie en elke ideologie. »",
+            member3_quote: "« Sinds ik lid ben van de Illuminati Orde, heb ik richting, discipline en een broederschap gevonden die de hele wereld omspant en uw visie deelt. »",
+            info_title: "De Illuminati Orde — Officiële organisatie",
+            info_p1: "De Illuminati Orde is de officiële organisatie voor elitepersonen die zich inzetten voor de vooruitgang van de menselijke soort. Onze enige focus is menselijke vooruitgang.",
+            info_how_title: "Hoe word je lid van de Illuminati Orde",
+            info_how_p: "Om lid te worden van de Illuminati Orde, dien je eenvoudig je aanvraag in via ons officiële formulier. We beoordelen alle aanvragen persoonlijk en nemen rechtstreeks contact op met gekwalificeerde kandidaten. Lidmaatschap staat open voor mensen van alle achtergronden — zakelijke leiders, kunstenaars, academici, innovators, politici en visionairs van over de hele wereld.",
+            info_world_title: "De Illuminati Orde wereldwijd",
+            info_world_p: "De Illuminati Orde heeft leden in de VS, het VK, Canada, Australië en in heel Europa, waaronder Frankrijk, Duitsland, Italië, Spanje, Nederland, België, Zwitserland, Zweden, Noorwegen en Denemarken. Ons netwerk blijft groeien naarmate meer doelgerichte mensen onze organisatie ontdekken.",
+            info_call: "Contact — ",
+            chip_usa: "VS", chip_uk: "Verenigd Koninkrijk", chip_canada: "Canada", chip_australia: "Australië", chip_france: "Frankrijk", chip_germany: "Duitsland", chip_italy: "Italië", chip_spain: "Spanje", chip_netherlands: "Nederland", chip_belgium: "België", chip_switzerland: "Zwitserland", chip_sweden: "Zweden", chip_norway: "Noorwegen", chip_denmark: "Denemarken",
+            country_us: "Verenigde Staten", country_uk: "Verenigd Koninkrijk", country_canada: "Canada", country_au: "Australië", country_fr: "Frankrijk", country_de: "Duitsland", country_it: "Italië", country_es: "Spanje", country_nl: "Nederland", country_be: "België", country_ch: "Zwitserland", country_se: "Zweden", country_no: "Noorwegen", country_dk: "Denemarken",
+            form_country_other: "Anders",
+            foot_brand_p: "De officiële website van de Illuminati Orde — een wereldwijde organisatie die invloedrijke leiders, innovators en visionairs verenigt voor de vooruitgang van de mensheid.",
+            foot_org_title: "Organisatie", foot_members_link: "Onze leden", foot_members_title: "Leden",
+            foot_usa_chapter: "VS-hoofdstuk", foot_uk_chapter: "VK-hoofdstuk", foot_canada_chapter: "Canada-hoofdstuk", foot_australia_chapter: "Australië-hoofdstuk",
+            foot_info_title: "Informatie", foot_contact: "Neem contact op", foot_privacy: "Privacybeleid", foot_terms: "Gebruiksvoorwaarden", foot_privacy_short: "Privacy", foot_terms_short: "Voorwaarden",
+            foot_note: "De Illuminati Orde is een onafhankelijke organisatie.", doc_title: "De Illuminati Orde — Officiële website"
+          }
+        };
+        Object.keys(EXTRA).forEach(function (lang) {
+          if (!T[lang]) T[lang] = {};
+          Object.keys(EXTRA[lang]).forEach(function (k) { T[lang][k] = EXTRA[lang][k]; });
+        });
+        var ARIA = {
+          en: { menu: "Open menu", play: "Play the official introduction" },
+          fr: { menu: "Ouvrir le menu", play: "Lire la présentation officielle" },
+          es: { menu: "Abrir menú", play: "Reproducir la presentación oficial" },
+          de: { menu: "Menü öffnen", play: "Die offizielle Einführung abspielen" },
+          it: { menu: "Apri menu", play: "Riproduci la presentazione ufficiale" },
+          pt: { menu: "Abrir menu", play: "Reproduzir a apresentação oficial" },
+          nl: { menu: "Menu openen", play: "Speel de officiële introductie af" }
+        };
+        function storeLang(lang) {
+          try { window.localStorage.setItem('illuminati-lang', lang); } catch (e) {}
+        }
+        function readStoredLang() {
+          try { return window.localStorage.getItem('illuminati-lang'); } catch (e) { return null; }
+        }
         // Capture original English from the DOM on first load
         var originals = {};
         document.querySelectorAll('[data-i18n]').forEach(function (el) {
           var k = el.getAttribute('data-i18n');
           if (!(k in originals)) originals[k] = el.innerHTML;
         });
+        var originalTitle = document.title;
+        var SUPPORTED = ['en', 'fr', 'es', 'de', 'it', 'pt', 'nl'];
         function applyLang(lang) {
+          if (SUPPORTED.indexOf(lang) === -1) lang = 'en';
           document.documentElement.lang = lang;
           document.querySelectorAll('[data-i18n]').forEach(function (el) {
             var k = el.getAttribute('data-i18n');
             var val = (lang === 'en') ? originals[k] : (T[lang] && T[lang][k]);
             if (val != null) {
-              if (val.indexOf('<') !== -1) el.innerHTML = val; else el.textContent = val;
+              if (String(val).indexOf('<') !== -1) el.innerHTML = val; else el.textContent = val;
             }
           });
+          var dict = (lang === 'en') ? null : T[lang];
+          document.title = dict && dict.doc_title ? dict.doc_title : originalTitle;
+          var aria = ARIA[lang] || ARIA.en;
+          var burgerEl = document.getElementById('burger');
+          if (burgerEl && aria) burgerEl.setAttribute('aria-label', aria.menu);
+          var playEl = document.getElementById('playBtn');
+          if (playEl && aria) playEl.setAttribute('aria-label', aria.play);
           var sel = document.getElementById('langSelect');
-          if (sel) sel.value = lang;
+          if (sel && sel.value !== lang) sel.value = lang;
+          storeLang(lang);
         }
         var sel = document.getElementById('langSelect');
         if (sel) {
           sel.addEventListener('change', function () { applyLang(sel.value); });
+          sel.addEventListener('input', function () { applyLang(sel.value); });
+          // Fresh open: apply the saved choice, or whatever value the browser
+          // restored into the dropdown, so the page text and the dropdown
+          // always agree on first load.
+          var initial = readStoredLang();
+          if (SUPPORTED.indexOf(initial) === -1) initial = sel.value || 'en';
+          applyLang(initial);
+          window.addEventListener('pageshow', function () {
+            var saved = readStoredLang();
+            if (saved && SUPPORTED.indexOf(saved) !== -1 && saved !== document.documentElement.lang) applyLang(saved);
+            else if (sel.value && sel.value !== document.documentElement.lang) applyLang(sel.value);
+          });
         }
       })();
