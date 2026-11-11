@@ -16,7 +16,8 @@
         color-scheme: dark;
       }
       * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
+      html { scroll-behavior: smooth; overflow-x: clip; }
+      body { overflow-x: clip; }
       body {
         margin: 0;
         background: var(--bg);
@@ -27,6 +28,7 @@
         -webkit-font-smoothing: antialiased;
       }
       h1, h2, h3, .serif { font-family: "Cinzel", "Times New Roman", serif; }
+      h1, h2, h3, p, blockquote, li { overflow-wrap: break-word; }
       a { color: var(--gold-bright); }
       img { max-width: 100%; display: block; }
       button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2.25rem; }
@@ -74,10 +76,11 @@
         border-bottom: 1px solid var(--line-soft);
       }
       .nav-row {
-        max-width: 1440px; margin: 0 auto; padding: 0.8rem 1.5rem;
-        display: flex; align-items: center; gap: 2rem;
+        width: 100%; max-width: 1440px; margin: 0 auto; padding: 0.8rem 1.5rem;
+        display: flex; align-items: center; gap: 2rem; flex-wrap: nowrap;
       }
-      .brand { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; flex: none; }
+      .brand { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; flex: none; min-width: 0; }
+      .brand > span { min-width: 0; }
       .brand svg { width: 44px; height: 40px; flex: none; }
       .brand-name { font-family: "Cinzel", serif; font-size: 1.18rem; font-weight: 700; letter-spacing: 0.14em; color: var(--gold); line-height: 1.1; white-space: nowrap; }
       .brand-sub { font-size: 0.6rem; letter-spacing: 0.42em; color: var(--ink-faint); text-transform: uppercase; margin-top: 0.3rem; }
@@ -86,6 +89,7 @@
       nav.main a {
         color: var(--ink); text-decoration: none; font-size: 0.78rem; font-weight: 500;
         letter-spacing: 0.22em; text-transform: uppercase; padding: 0.6rem 0.1rem; display: inline-block;
+        white-space: nowrap;
       }
       nav.main a:hover { color: var(--gold-bright); }
       nav.main a.active { color: var(--gold); border-bottom: 1px solid var(--gold); }
@@ -353,13 +357,15 @@
       .float-join:hover { filter: brightness(1.08); }
 
       /* ---------- Responsive ---------- */
-      @media (max-width: 1080px) {
-        nav.main { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #05060a; border-bottom: 1px solid var(--line); padding: 0.6rem 1.5rem 1.2rem; }
+      @media (max-width: 1240px) {
+        nav.main { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #05060a; border-bottom: 1px solid var(--line); padding: 0.6rem 1.5rem 1.2rem; max-height: calc(100vh - 64px); overflow-y: auto; }
         nav.main.open { display: block; }
         nav.main ul { flex-direction: column; align-items: stretch; gap: 0.2rem; }
-        nav.main a { display: block; padding: 0.85rem 0.2rem; }
+        nav.main a { display: block; padding: 0.85rem 0.2rem; white-space: normal; }
         nav.main a.join-btn { text-align: center; margin-top: 0.6rem; }
         .burger { display: flex; }
+      }
+      @media (max-width: 1080px) {
         .beliefs-grid { grid-template-columns: 1fr 1fr; }
         .belief { border-bottom: 1px solid rgba(0,0,0,.5); }
       }
@@ -370,16 +376,56 @@
         .foot-grid { grid-template-columns: 1fr 1fr; gap: 2.2rem; }
         .hero { padding: 5rem 1.25rem 5.5rem; }
         .topbar { letter-spacing: 0.18em; font-size: 0.62rem; }
+        .nav-row { gap: 1rem; padding: 0.7rem 1rem; }
+        header.site .brand { gap: 0.6rem; }
+        header.site .brand svg { width: 36px; height: 33px; }
+        header.site .brand-name { font-size: 1rem; letter-spacing: 0.1em; }
+        header.site .brand-sub { letter-spacing: 0.3em; }
+        .lang-wrap label { display: none; }
+        #langSelect { max-width: 132px; }
       }
-      @media (max-width: 1080px) {
+      @media (max-width: 1240px) {
         .lang-wrap { margin-left: auto; order: 2; }
         .burger { margin-left: 0.6rem; order: 3; }
         nav.main { order: 4; }
       }
       @media (max-width: 640px) {
+        /* Header: brand + language + hamburger must all fit one row */
+        .nav-row { gap: 0.5rem; padding: 0.6rem 0.75rem; }
+        header.site .brand { flex: 1 1 auto; gap: 0.5rem; min-width: 0; }
+        header.site .brand svg { width: 30px; height: 27px; }
+        header.site .brand-name { font-size: 0.8rem; letter-spacing: 0.06em; }
+        header.site .brand-sub { display: none !important; }
+        .lang-wrap { margin-left: 0; gap: 0; flex: 0 0 auto; }
         .lang-wrap label { display: none; }
-        #langSelect { max-width: 118px; font-size: 0.82rem; padding-left: 0.6rem; }
-        .nav-row { gap: 0.8rem; padding-left: 1rem; padding-right: 1rem; }
+        #langSelect { width: 92px; max-width: 92px; font-size: 0.78rem; padding: 0.5rem 1.5rem 0.5rem 0.5rem; min-height: 44px; text-overflow: ellipsis; }
+        .lang-select-wrap::after { right: 0.45rem; }
+        .burger { flex: 0 0 44px; width: 44px; height: 44px; margin-left: 0; }
+        nav.main { padding-left: 1rem; padding-right: 1rem; }
+        /* Rest of the page: nothing wider than the screen */
+        .topbar { letter-spacing: 0.12em; padding: 0.5rem 0.6rem; line-height: 1.7; }
+        .kicker { letter-spacing: 0.24em; }
+        .beliefs-strip { letter-spacing: 0.2em; font-size: 0.78rem; line-height: 1.7; padding: 1rem 0.75rem; }
+        .btn { padding-left: 1.1rem; padding-right: 1.1rem; letter-spacing: 0.16em; font-size: 0.76rem; line-height: 1.6; text-align: center; max-width: 100%; }
+        .belief h3, .step h3 { letter-spacing: 0.18em; }
+        .benefit h3 { letter-spacing: 0.2em; }
+        .stat { padding: 1.6rem 0.6rem; }
+        .stat .num { font-size: 1.45rem; }
+        .stat .lbl { letter-spacing: 0.18em; font-size: 0.66rem; }
+        .video-top { padding: 0.8rem 0.9rem; }
+        .video-top > span { min-width: 0; }
+        .video-top b { font-size: 0.9rem; }
+        .info-block .mail { overflow-wrap: anywhere; }
+        .foot-brand .brand-name { font-size: 0.9rem; letter-spacing: 0.08em; white-space: normal; }
+        .float-join { right: 0.75rem; bottom: 0.75rem; padding: 0.8rem 1.1rem; font-size: 0.78rem; letter-spacing: 0.16em; }
+      }
+      @media (max-width: 430px) {
+        .nav-row { gap: 0.4rem; padding-left: 0.6rem; padding-right: 0.6rem; }
+        header.site .brand { gap: 0.4rem; }
+        header.site .brand svg { width: 26px; height: 24px; }
+        header.site .brand-name { font-size: 0.68rem; letter-spacing: 0.04em; }
+        #langSelect { width: 80px; max-width: 80px; font-size: 0.72rem; padding-right: 1.3rem; padding-left: 0.4rem; }
+        .lang-select-wrap::after { right: 0.35rem; }
       }
       @media (max-width: 540px) {
         .beliefs-grid { grid-template-columns: 1fr; }
