@@ -33,7 +33,7 @@
             'Country: ' + country + '\n\n' +
             'Why I seek the Order:\n' + message
           );
-          window.location.href = 'mailto:info@theilluminatiorder.org?subject=' + subject + '&body=' + body;
+          window.location.href = 'mailto:secretariatfraternity@gmail.com?subject=' + subject + '&body=' + body;
         });
       })();
 
