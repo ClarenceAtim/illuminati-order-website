@@ -20,20 +20,55 @@
           if (open) { msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
         });
 
+        /* Form status messages (7 languages — the i18n dict lives in a
+           separate scope, so the form keeps its own copy). */
+        var FORM_STATUS = {
+          en: { sending: 'Sending your application…', sent: 'Application sent. The Order will review it and reply to your email.', error: 'Something went wrong — please try again, or write to us directly at secretariatfraternity@gmail.com.' },
+          fr: { sending: 'Envoi de votre candidature…', sent: 'Candidature envoyée. L\u2019Ordre l\u2019examinera et répondra à votre e-mail.', error: 'Une erreur s\u2019est produite — veuillez réessayer ou nous écrire directement à secretariatfraternity@gmail.com.' },
+          es: { sending: 'Enviando su solicitud…', sent: 'Solicitud enviada. La Orden la revisará y responderá a su correo.', error: 'Algo salió mal — inténtelo de nuevo o escríbanos directamente a secretariatfraternity@gmail.com.' },
+          de: { sending: 'Ihre Bewerbung wird gesendet…', sent: 'Bewerbung gesendet. Der Orden wird sie prüfen und Ihnen per E-Mail antworten.', error: 'Etwas ist schiefgelaufen — bitte versuchen Sie es erneut oder schreiben Sie uns direkt an secretariatfraternity@gmail.com.' },
+          it: { sending: 'Invio della candidatura…', sent: 'Candidatura inviata. L\u2019Ordine la esaminerà e risponderà alla tua e-mail.', error: 'Qualcosa è andato storto — riprova o scrivici direttamente a secretariatfraternity@gmail.com.' },
+          pt: { sending: 'A enviar a sua candidatura…', sent: 'Candidatura enviada. A Ordem irá revê-la e responder ao seu e-mail.', error: 'Algo correu mal — tente novamente ou escreva-nos diretamente para secretariatfraternity@gmail.com.' },
+          nl: { sending: 'Je aanvraag wordt verzonden…', sent: 'Aanvraag verzonden. De Orde zal deze beoordelen en reageren op je e-mail.', error: 'Er is iets misgegaan — probeer het opnieuw of schrijf ons direct op secretariatfraternity@gmail.com.' }
+        };
+
         document.getElementById('applyForm').addEventListener('submit', function (e) {
           e.preventDefault();
+          var form = e.target;
+          var btn = form.querySelector('button[type="submit"]');
+          var status = document.getElementById('form-status');
+          var lang = document.documentElement.lang || 'en';
+          var S = FORM_STATUS[lang] || FORM_STATUS.en;
           var name = document.getElementById('f-name').value.trim();
           var email = document.getElementById('f-email').value.trim();
           var country = document.getElementById('f-country').value;
           var message = document.getElementById('f-msg').value.trim();
-          var subject = encodeURIComponent('Membership Application — ' + name);
-          var body = encodeURIComponent(
-            'Full Name: ' + name + '\n' +
-            'Email: ' + email + '\n' +
-            'Country: ' + country + '\n\n' +
-            'Why I seek the Order:\n' + message
-          );
-          window.location.href = 'mailto:secretariatfraternity@gmail.com?subject=' + subject + '&body=' + body;
+          btn.disabled = true;
+          status.textContent = S.sending;
+          status.className = 'form-status sending';
+          /* Direct submit via FormSubmit (free form backend, no account):
+             the application is emailed to secretariatfraternity@gmail.com
+             without leaving the page. _captcha false is required for AJAX. */
+          fetch('https://formsubmit.co/ajax/secretariatfraternity@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              name: name, email: email, country: country, message: message,
+              _subject: 'Membership Application — ' + name,
+              _template: 'table',
+              _captcha: 'false'
+            })
+          }).then(function (res) { return res.json(); }).then(function (data) {
+            if (!data || data.success !== 'true') throw new Error('submit failed');
+            status.textContent = S.sent;
+            status.className = 'form-status sent';
+            form.reset();
+            btn.disabled = false;
+          }).catch(function () {
+            status.textContent = S.error;
+            status.className = 'form-status error';
+            btn.disabled = false;
+          });
         });
       })();
 
@@ -61,7 +96,7 @@
             proc_kicker: "Procédure d'adhésion", proc_title_a: "COMMENT REJOINDRE", proc_sub: "L'adhésion est ouverte aux personnes de tous horizons — nous accueillons dirigeants d'entreprise, artistes, universitaires, innovateurs, politiciens et visionnaires du monde entier.",
             step1_title: "Soumettez votre candidature", step1_p: "Envoyez votre candidature via le formulaire officiel sur cette page, avec votre nom, votre pays et la raison pour laquelle vous cherchez l'Ordre.", step2_title: "Examen personnel", step2_p: "Nous examinons toutes les candidatures personnellement et contactons directement les candidats qualifiés. L'adhésion est ouverte aux personnes d'un caractère, d'une vision et d'un engagement exceptionnels.", step3_title: "Prêtez le Serment Éternel", step3_p: "Les candidats acceptés s'engagent pour le progrès de l'espèce humaine en prêtant le Serment Éternel — le premier engagement des Illuminati.",
             cta_title_a: "ÊTES-VOUS PRÊT À REJOINDRE<br />", cta_p: "L'adhésion à l'Ordre Illuminati est ouverte aux personnes d'un caractère, d'une vision et d'un engagement exceptionnels envers l'espèce humaine.", cta_btn: "Commencer votre candidature",
-            form_name: "Nom complet", form_email: "Adresse e-mail", form_country: "Pays", form_country_select: "Sélectionnez votre pays…", form_why: "Pourquoi cherchez-vous l'Ordre ?", form_submit: "Envoyer la candidature", form_note: "L'envoi ouvre votre application e-mail avec votre candidature adressée à l'Ordre. Toutes les candidatures sont examinées personnellement.", float_join: "REJOIGNEZ-NOUS ✦", video_note: "Regardez la vidéo complète pour comprendre le véritable but des Élites Illuminati."
+            form_name: "Nom complet", form_email: "Adresse e-mail", form_country: "Pays", form_country_select: "Sélectionnez votre pays…", form_why: "Pourquoi cherchez-vous l'Ordre ?", form_submit: "Envoyer la candidature", form_note: "Votre candidature est envoyée directement à l'Ordre. Toutes les candidatures sont examinées personnellement.", float_join: "REJOIGNEZ-NOUS ✦", video_note: "Regardez la vidéo complète pour comprendre le véritable but des Élites Illuminati."
           },
           es: {
             topbar: "◆ El sitio web oficial de la Orden Illuminati ◆ Membresía global abierta ◆",
@@ -85,7 +120,7 @@
             proc_kicker: "Procedimiento de membresía", proc_title_a: "CÓMO UNIRSE A", proc_sub: "La membresía está abierta a personas de todos los orígenes — damos la bienvenida a líderes empresariales, artistas, académicos, innovadores, políticos y visionarios de todo el mundo.",
             step1_title: "Envía tu solicitud", step1_p: "Envía tu solicitud a través del formulario oficial de esta página, con tu nombre, país y el motivo por el que buscas la Orden.", step2_title: "Revisión personal", step2_p: "Revisamos todas las solicitudes personalmente y contactamos directamente a los candidatos calificados. La membresía está abierta a personas de carácter, visión y compromiso excepcionales.", step3_title: "Haz el Juramento Eterno", step3_p: "Los candidatos aceptados se comprometen con el avance de la especie humana haciendo el Juramento Eterno — la primera promesa de los Illuminati.",
             cta_title_a: "¿ESTÁS LISTO PARA UNIRTE A<br />", cta_p: "La membresía en la Orden Illuminati está abierta a personas de carácter, visión y compromiso excepcionales con la especie humana.", cta_btn: "Comienza tu solicitud",
-            form_name: "Nombre completo", form_email: "Correo electrónico", form_country: "País", form_country_select: "Selecciona tu país…", form_why: "¿Por qué buscas la Orden?", form_submit: "Enviar solicitud", form_note: "Al enviar se abre tu aplicación de correo con tu solicitud dirigida a la Orden. Todas las solicitudes se revisan personalmente.", float_join: "ÚNETE ✦", video_note: "Mira el video completo para comprender el verdadero propósito de las Élites Illuminati."
+            form_name: "Nombre completo", form_email: "Correo electrónico", form_country: "País", form_country_select: "Selecciona tu país…", form_why: "¿Por qué buscas la Orden?", form_submit: "Enviar solicitud", form_note: "Su solicitud se envía directamente a la Orden. Todas las solicitudes se revisan personalmente.", float_join: "ÚNETE ✦", video_note: "Mira el video completo para comprender el verdadero propósito de las Élites Illuminati."
           },
           de: {
             topbar: "◆ Die offizielle Website des Illuminati-Ordens ◆ Globale Mitgliedschaft offen ◆",
@@ -109,7 +144,7 @@
             proc_kicker: "Mitgliedschaftsverfahren", proc_title_a: "SO TRETEN SIE BEI —", proc_sub: "Die Mitgliedschaft steht Menschen aller Hintergründe offen — wir begrüßen Wirtschaftsführer, Künstler, Akademiker, Innovatoren, Politiker und Visionäre aus aller Welt.",
             step1_title: "Reichen Sie Ihre Bewerbung ein", step1_p: "Senden Sie Ihre Bewerbung über das offizielle Formular auf dieser Seite, mit Ihrem Namen, Land und Ihrem Grund, den Orden zu suchen.", step2_title: "Persönliche Prüfung", step2_p: "Wir prüfen alle Bewerbungen persönlich und kontaktieren qualifizierte Kandidaten direkt. Die Mitgliedschaft steht Personen von außergewöhnlichem Charakter, Vision und Engagement offen.", step3_title: "Leisten Sie den Ewigen Eid", step3_p: "Angenommene Kandidaten verpflichten sich zum Fortschritt der Menschheit, indem sie den Ewigen Eid leisten — das erste Gelübde der Illuminati.",
             cta_title_a: "BEREIT, BEIZUTRETEN —<br />", cta_p: "Die Mitgliedschaft im Illuminati-Orden steht Personen von außergewöhnlichem Charakter, Vision und Engagement für die Menschheit offen.", cta_btn: "Bewerbung beginnen",
-            form_name: "Vollständiger Name", form_email: "E-Mail-Adresse", form_country: "Land", form_country_select: "Wählen Sie Ihr Land…", form_why: "Warum suchen Sie den Orden?", form_submit: "Bewerbung absenden", form_note: "Beim Absenden öffnet sich Ihre E-Mail-App mit Ihrer an den Orden adressierten Bewerbung. Alle Bewerbungen werden persönlich geprüft.", float_join: "BEITRETEN ✦", video_note: "Sehen Sie das vollständige Video, um den wahren Zweck der Illuminati-Eliten zu verstehen."
+            form_name: "Vollständiger Name", form_email: "E-Mail-Adresse", form_country: "Land", form_country_select: "Wählen Sie Ihr Land…", form_why: "Warum suchen Sie den Orden?", form_submit: "Bewerbung absenden", form_note: "Ihre Bewerbung wird direkt an den Orden gesendet. Alle Bewerbungen werden persönlich geprüft.", float_join: "BEITRETEN ✦", video_note: "Sehen Sie das vollständige Video, um den wahren Zweck der Illuminati-Eliten zu verstehen."
           },
           it: {
             topbar: "◆ Il sito ufficiale dell'Ordine Illuminati ◆ Iscrizioni globali aperte ◆",
@@ -133,7 +168,7 @@
             proc_kicker: "Procedura di iscrizione", proc_title_a: "COME UNIRSI ALL'", proc_sub: "L'iscrizione è aperta a persone di ogni provenienza — accogliamo leader aziendali, artisti, accademici, innovatori, politici e visionari da tutto il mondo.",
             step1_title: "Invia la tua candidatura", step1_p: "Invia la tua candidatura tramite il modulo ufficiale in questa pagina, con nome, paese e motivo per cui cerchi l'Ordine.", step2_title: "Revisione personale", step2_p: "Esaminiamo personalmente tutte le candidature e contattiamo direttamente i candidati qualificati. L'iscrizione è aperta a persone di carattere, visione e impegno eccezionali.", step3_title: "Pronuncia il Giuramento Eterno", step3_p: "I candidati accettati si impegnano per il progresso della specie umana pronunciando il Giuramento Eterno — la prima promessa degli Illuminati.",
             cta_title_a: "SEI PRONTO A UNIRTI<br />ALL'", cta_p: "L'iscrizione all'Ordine Illuminati è aperta a persone di carattere, visione e impegno eccezionali verso la specie umana.", cta_btn: "Inizia la candidatura",
-            form_name: "Nome completo", form_email: "Indirizzo e-mail", form_country: "Paese", form_country_select: "Seleziona il tuo paese…", form_why: "Perché cerchi l'Ordine?", form_submit: "Invia candidatura", form_note: "L'invio apre la tua app e-mail con la candidatura indirizzata all'Ordine. Tutte le candidature sono esaminate personalmente.", float_join: "UNISCITI ✦", video_note: "Guarda il video completo per comprendere il vero scopo delle Élites Illuminati."
+            form_name: "Nome completo", form_email: "Indirizzo e-mail", form_country: "Paese", form_country_select: "Seleziona il tuo paese…", form_why: "Perché cerchi l'Ordine?", form_submit: "Invia candidatura", form_note: "La tua candidatura viene inviata direttamente all'Ordine. Tutte le candidature sono esaminate personalmente.", float_join: "UNISCITI ✦", video_note: "Guarda il video completo per comprendere il vero scopo delle Élites Illuminati."
           },
           pt: {
             topbar: "◆ O site oficial da Ordem Illuminati ◆ Adesão global aberta ◆",
@@ -157,7 +192,7 @@
             proc_kicker: "Procedimento de adesão", proc_title_a: "COMO JUNTAR-SE À", proc_sub: "A adesão está aberta a pessoas de todas as origens — acolhemos líderes empresariais, artistas, académicos, inovadores, políticos e visionários de todo o mundo.",
             step1_title: "Envie a sua candidatura", step1_p: "Envie a sua candidatura através do formulário oficial nesta página, com o seu nome, país e o motivo pelo qual procura a Ordem.", step2_title: "Revisão pessoal", step2_p: "Revisamos todas as candidaturas pessoalmente e contactamos diretamente os candidatos qualificados. A adesão está aberta a pessoas de caráter, visão e compromisso excecionais.", step3_title: "Faça o Juramento Eterno", step3_p: "Os candidatos aceites comprometem-se com o avanço da espécie humana fazendo o Juramento Eterno — a primeira promessa dos Illuminati.",
             cta_title_a: "ESTÁ PRONTO PARA SE JUNTAR À<br />", cta_p: "A adesão à Ordem Illuminati está aberta a pessoas de caráter, visão e compromisso excecionais com a espécie humana.", cta_btn: "Comece a sua candidatura",
-            form_name: "Nome completo", form_email: "Endereço de e-mail", form_country: "País", form_country_select: "Selecione o seu país…", form_why: "Por que procura a Ordem?", form_submit: "Enviar candidatura", form_note: "Ao enviar, abre a sua aplicação de e-mail com a candidatura endereçada à Ordem. Todas as candidaturas são revistas pessoalmente.", float_join: "JUNTE-SE ✦", video_note: "Assista ao vídeo completo para compreender o verdadeiro propósito das Elites Illuminati."
+            form_name: "Nome completo", form_email: "Endereço de e-mail", form_country: "País", form_country_select: "Selecione o seu país…", form_why: "Por que procura a Ordem?", form_submit: "Enviar candidatura", form_note: "A sua candidatura é enviada diretamente para a Ordem. Todas as candidaturas são revistas pessoalmente.", float_join: "JUNTE-SE ✦", video_note: "Assista ao vídeo completo para compreender o verdadeiro propósito das Elites Illuminati."
           },
           nl: {
             topbar: "◆ De officiële website van de Illuminati Orde ◆ Wereldwijd lidmaatschap open ◆",
@@ -181,7 +216,7 @@
             proc_kicker: "Lidmaatschapsprocedure", proc_title_a: "HOE WORD JE LID VAN", proc_sub: "Lidmaatschap staat open voor mensen van alle achtergronden — we verwelkomen zakelijke leiders, kunstenaars, academici, innovators, politici en visionairs van over de hele wereld.",
             step1_title: "Dien je aanvraag in", step1_p: "Stuur je aanvraag via het officiële formulier op deze pagina, met je naam, land en je reden om de Orde te zoeken.", step2_title: "Persoonlijke beoordeling", step2_p: "We beoordelen alle aanvragen persoonlijk en nemen rechtstreeks contact op met gekwalificeerde kandidaten. Lidmaatschap staat open voor personen met uitzonderlijk karakter, visie en toewijding.", step3_title: "Leg de Eeuwige Eed af", step3_p: "Geaccepteerde kandidaten verbinden zich aan de vooruitgang van de menselijke soort door de Eeuwige Eed af te leggen — de eerste belofte van de Illuminati.",
             cta_title_a: "BEN JE KLAAR OM LID TE WORDEN VAN<br />", cta_p: "Lidmaatschap van de Illuminati Orde staat open voor personen met uitzonderlijk karakter, visie en toewijding aan de menselijke soort.", cta_btn: "Begin je aanvraag",
-            form_name: "Volledige naam", form_email: "E-mailadres", form_country: "Land", form_country_select: "Selecteer je land…", form_why: "Waarom zoek je de Orde?", form_submit: "Aanvraag indienen", form_note: "Bij verzenden opent je e-mailapp met je aanvraag gericht aan de Orde. Alle aanvragen worden persoonlijk beoordeeld.", float_join: "WORD LID ✦", video_note: "Bekijk de volledige video om het ware doel van de Illuminati-elites te begrijpen."
+            form_name: "Volledige naam", form_email: "E-mailadres", form_country: "Land", form_country_select: "Selecteer je land…", form_why: "Waarom zoek je de Orde?", form_submit: "Aanvraag indienen", form_note: "Je aanvraag wordt direct naar de Orde gestuurd. Alle aanvragen worden persoonlijk beoordeeld.", float_join: "WORD LID ✦", video_note: "Bekijk de volledige video om het ware doel van de Illuminati-elites te begrijpen."
           }
         };
         // Extra translations for sections that previously had no language keys
